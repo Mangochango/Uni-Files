@@ -4,6 +4,7 @@ import matplotlib.pyplot
 import sys
 sys.setrecursionlimit(10**6)
 
+#Runs simulations of the N Queens problem, and generated a heatmap of how often certain squares are used
 def greedy_descent(initial_state, neighbours, cost):
     
     """Iteratively improves the state until a local minimum
@@ -44,7 +45,7 @@ def greedy_descent_with_random_restart(random_state, neighbours, cost, repetitio
             chessboard[row, column-1] += 1
         repetitions += 1
        # print(str(repetitions) + " solutions found so far.")
-        if repetitions <= 400:
+        if repetitions <= 1000:
             greedy_descent_with_random_restart(random_state, neighbours, cost, repetitions, chessboard)
         else:
             print(chessboard)
@@ -119,7 +120,7 @@ def chessboard_plot(state):
 
 
 
-N = 6
+N = 8
 #random.seed(0)
 
 def random_state():
